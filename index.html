@@ -6,22 +6,103 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home</title>
         <link href="src/css/output.css" rel="stylesheet">
-        <link rel="stylesheet" href="../../assets/animatecss/animate.css">
-        <link rel="stylesheet" href="../../assets/fontawesome/css/all.css">
+        <link rel="stylesheet" href="assets/animatecss/animate.css">
+        <link rel="stylesheet" href="assets/fontawesome/css/all.css">
+        <link rel="stylesheet" href="assets/owl/owl.carousel.css">
+        <link rel="stylesheet" href="assets/owl/owl.theme.default.min.css">
     </head>
-    <body>
-        <div class="bg-secondary">
-            <div class="frame">
-                <div class="bg-primary text-primary-color p-5 space-y-4">
-                    <p>Men</p>
-                    <p>Woman</p>
-                    <p>Bags</p>
-                    <p>Shoes</p>
-                    <p>Jewellery</p>
-                    <p>Accessories</p>
+    <body x-data="{ menu: false, category: true, search: false }">
+
+
+        <nav>
+            <div class="frame mobile-padding">
+                <div class="flex-nav mt-2 w-full border-b-2 pb-2 md:text-sm text-xs">
+                    <p>Call us +77(510)334 594</p>
+                    <p>Login / sign In</p>
                 </div>
-                <div>
-                    <h2>sale up to</h2>
+                <div class="flex flex-row items-start justify-between space-x-5 w-full mt-3">
+                    <a href="/index.html" class="text-primary md:text-4xl text-2xl font-semibold">Bella</a>
+                    <div class="relative">
+                        <div class="border md:flex flex-row items-center justify-start space-x-5 rounded-full pr-3 hidden">
+                            <form action="">
+                                <input type="search" class="bg-transparent border-none outline-none focus:border-none focus:outline-none focus:ring-0 pl-2 py-1 rounded-full" placeholder="Search">
+                            </form>
+                            <div class="flex flex-row items-center justify-between space-x-5 text-xs text-gray-600">
+                                <button @click="category =! category" class="flex flex-row items-center justify-start space-x-2">
+                                    <span class="flex-none">All Categories</span>
+                                    <span><i class="fas fa-chevron-down"></i></span>
+                                </button>
+                                <span><i class="fas fa-search"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-x-4 md:flex flex-row items-center justify-center text-sm hidden">
+                        <a href="/" class="nav-link">Home</a>
+                        <a href="/" class="nav-link">Shop</a>
+                        <a href="/" class="nav-link lg:block hidden">About</a>
+                        <a href="/" class="nav-link lg:block hidden">Blog</a>
+                        <a href="/" class="nav-link lg:block hidden">Pages</a>
+                        <a href="/" class="nav-link lg:block hidden">Contact</a>
+                    </div>
+                    <div class="flex flex-row items-center justify-start space-x-4">
+                        <a href="#" class="nav-link"><i class="far fa-heart"></i></a>
+                        <button class="nav-link relative"><i class="fas fa-shopping-cart"></i>
+                            <span class="border bg-primary text-primary-color rounded-full w-4 h-4 absolute -top-2 left-2 text-xs flex items-center justify-center">
+                                2
+                            </span>
+                            <button type="button" @click="search =! search" class="nav-link md:hidden block">
+                                <span><i class="fas fas fa-search"></i></span>
+                            </button>
+                        </button>
+                        <button @click="menu =! menu" class="nav-link lg:hidden block md:text-sm text-xs">Menu</button>
+                    </div>
+                    <div class="pt-10">
+                        <div x-show="menu === true" class="flex flex-col space-y-2 text-sm text-secondary-color border py-5 px-3 w-60">
+                            <a href="">Men</a>
+                            <a href="">Woman</a>
+                            <a href="">Bags</a>
+                            <a href="">Shoes</a>
+                            <a href="">Jewellery</a>
+                            <a href="">Accessories</a>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="search === true">
+                    <form action="">
+                        <input type="search" class="bg-transparent border-none outline-none focus:border-none focus:outline-none focus:ring-0 pl-2 py-1 rounded-full" placeholder="Search">
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+
+
+
+
+
+        <div class="bg-secondary mt-10">
+            <div class="frame mobile-padding">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div>
+                        <div x-show="category === true" class="flex flex-col space-y-2 text-sm text-primary-color bg-primary py-5 px-3 w-60 transition-all duration-500 ease-in-out">
+                            <a href="">Men</a>
+                            <a href="">Woman</a>
+                            <a href="">Bags</a>
+                            <a href="">Shoes</a>
+                            <a href="">Jewellery</a>
+                            <a href="">Accessories</a>
+                        </div>
+                    </div>
+                    <div class="self-center">
+                        <h2 class="text-4xl text-secondary-color font-bold">SALE UP 70%</h2>
+                        <p class="text-xl text-gray-color">all 2016 fall-winter items</p>
+                        <div class="flex items-center justify-center pt-4">
+                            <button type="submit" class="bg-white/80 text-primary hover:bg-white rounded-full outline-none border-none btn-sm transition-all duration-400 ease-in-out">Shop now</button>
+                        </div>
+                    </div>
+                    <div class="">
+                        <img src="./src/images/team3.jpg" class="h-full w-auto object-cover" alt="">
+                    </div>
                 </div>
             </div>
         </div>
@@ -30,50 +111,50 @@
                 <h4 class="text-primary text-base font-bold">FEATURED PRODUCTS</h4>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 pt-10">
-                <div class="mobile-paddding">
-                    <img src="./src/images/1.jpg" class="md:h-40 md:w-52 h-40 w-48 object-cover" alt="">
+                <div class="mobile-paddding wow slideInLeft">
+                    <img src="./src/images/1.jpg" class="md:h-40 md:w-52 h-40 w-48 object-cover rounded-md shadow-md" alt="">
                     <div class="pt-2 space-y-2">
                         <p class="text-xs font-semibold">LOW BLACK PRINTED T-SHIRT</p>
                         <span class="text-xs text-gray-color">$120.00</span>
                     </div>
                 </div>
-                <div class="mobile-paddding">
-                    <img src="./src/images/5.jpg" class="md:h-40 md:w-52 h-40 w-48 object-cover" alt="">
+                <div class="mobile-paddding wow slideInLeft">
+                    <img src="./src/images/5.jpg" class="md:h-40 md:w-52 h-40 w-48 object-cover rounded-md shadow-md" alt="">
                     <div class="pt-2 space-y-2">
                         <p class="text-xs font-semibold">DOUBLE-BREASTED JACKET</p>
                         <span class="text-xs text-gray-color">$120.00</span>
                     </div>
                 </div>
-                <div class="mobile-paddding">
-                    <img src="./src/images/4.jpg" class="md:h-40 md:w-52 h-40 w-48 object-cover" alt="">
+                <div class="mobile-paddding wow slideInRight">
+                    <img src="./src/images/4.jpg" class="md:h-40 md:w-52 h-40 w-48 object-cover rounded-md shadow-md" alt="">
                     <div class="pt-2 space-y-2">
                         <p class="text-xs font-semibold">CROSS BODY BAG WITH PENDANT</p>
                         <span class="text-xs text-gray-color">$120.00</span>
                     </div>
                 </div>
-                <div class="mobile-paddding">
+                <div class="mobile-paddding wow slideInRight">
                     <img src="./src/images/2.jpg" class="md:h-40 md:w-52 h-40 w-48 object-cover" alt="">
                     <div class="pt-2 space-y-2">
                         <p class="text-xs font-semibold">PARKA WITH BAG EMBROIDERY</p>
                         <span class="text-xs text-gray-color">$120.00</span>
                     </div>
                 </div>
-                <div class="mobile-paddding">
-                    <img src="./src/images/team4.jpg" class="md:h-40 md:w-52 h-40 w-48 object-cover" alt="">
+                <div class="mobile-paddding wow slideInLeft">
+                    <img src="./src/images/team4.jpg" class="md:h-40 md:w-52 h-40 w-48 object-cover rounded-md shadow-md" alt="">
                     <div class="pt-2 space-y-2">
                         <p class="text-xs font-semibold">PRINT T-SHIRT</p>
                         <span class="text-xs text-gray-color">$120.00</span>
                     </div>
                 </div>
-                <div class="mobile-paddding">
-                    <img src="./src/images/team3.jpg" class="md:h-40 md:w-52 h-40 w-48 object-cover" alt="">
+                <div class="mobile-paddding wow slideInLeft">
+                    <img src="./src/images/team3.jpg" class="md:h-40 md:w-52 h-40 w-48 object-cover rounded-md shadow-md" alt="">
                     <div class="pt-2 space-y-2">
                         <p class="text-xs font-semibold">FLORAL PLATFORM SANDALS</p>
                         <span class="text-xs text-gray-color">$120.00</span>
                     </div>
                 </div>
-                <div class="mobile-paddding">
-                    <img src="./src/images/team1.jpg" class="md:h-40 md:w-52 h-40 w-48 object-cover" alt="">
+                <div class="mobile-paddding wow slideInRight">
+                    <img src="./src/images/team1.jpg" class="md:h-40 md:w-52 h-40 w-48 object-cover rounded-md" alt="">
                     <div class="pt-2 space-y-2">
                         <p class="text-xs font-semibold">MID-RISE SKINNY JEANSO</p>
                         <div class="flex flex-row items-center justify-start space-x-5">
@@ -82,8 +163,8 @@
                         </div>
                     </div>
                 </div>
-                <div>
-                    <img src="./src/images/team6.jpg" class="md:h-40 md:w-52 h-40 w-48 object-cover" alt="">
+                <div class="mobile-padding wow slideIn">
+                    <img src="./src/images/team6.jpg" class="md:h-40 md:w-52 h-40 w-48 object-cover rounded-md" alt="">
                     <div class="pt-2 space-y-2">
                         <p class="text-xs font-semibold">DENIM JACKET WITH METALLIC</p>
                         <span class="text-xs text-gray-color">$120.00</span>
@@ -131,25 +212,188 @@
                 <h3 class="text-2xl">Join Our Newsletter</h3>
                 <p class="text-xs">Be the first to know our special offers fior you</p>
             </div>
-            <div class="pt-5 frame pl-20">
-                <form action="">
-                    <input type="text" class="input text-xs text-primary-color" placeholder="enter your email">
-                </form>
-                <div class="pt-4 text-gray-color">hr</div>
+            <div class="pt-5 frame mobile-padding">
+                <div class="frame">
+                    <form action="">
+                        <div class="space-y-5">
+                            <input type="text" class="w-full border-b border-b-gray-600 bg-transparent focus:border-b-white focus:outline-none focus:ring-0 focus:ring-transparent text-white" placeholder="Enter your email address">
+                            <div class="flex items-center justify-center">
+                                <button type="submit" class="bg-white/80 hover:bg-white rounded-full outline-none border-none btn-md transition-all duration-400 ease-in-out">Subscribe</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="text-center">
-                <span class="bg-primary-color btn-md rounded-3xl">
-                    <button>Subscribe</button>
-                </span>
+        </div>
+        <div class="pt-10">
+            <div class="frame mobile-padding">
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+                    <div class="space-y-4 md:space-y-2">
+                        <div class="relative wow fadeLeft">
+                            <img src="./src/images/5.jpg" class="h-40 w-52 md:h-72 md: object-cover theme-rounded"  alt="">
+                            <div class="md:flex flex-row items-center justify-center px-3">
+                                <div class="text-xs text-secondary-color absolute -mt-10 font-semibold">
+                                    <p>2017 SHOES COLLECTION</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative wow fadeInLeft">
+                            <img src="./src/images/4.jpg" class="h-40 w-52 md:h-36 md: object-cover theme-rounded"  alt="">
+                            <div class="md:flex items-center justify-center px-3">
+                                <div class="text-xs text-secondary-color absolute -mt-10 font-semibold">
+                                    <p>2017 SHOES COLLECTION</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative wow fadeInLeft">
+                            <img src="./src/images/7.jpg" class="h-40 w-52 md:h-72 md: object-cover theme-rounded"  alt="">
+                            <div class="md:flex flex-row items-center justify-center px-3">
+                                <div class="text-xs text-secondary-color absolute -mt-16 font-semibold">
+                                    <p>SALE UP TO <br> LAST SEASON <span class="text-lg">70%</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 lg:col-span-3 mt-10">
+                        <p class="text-xs font-bold">ON SALE / TRENDING / <span class="text-font-bold text-primary"><span>BEST SELLER</span></span></p>
+                        <div class="grid grid-cols-2 lg:grid-cols-3 pt-5 gap-y-4 w-full">
+                            <div class="wow fadeInDown">
+                                <img src="./src/images/2.jpg" class="h-40 w-52 md:h-72 md: theme-rounded object-cover"  alt="">
+                                <div class="space-y-2 text-gray-color px-4">
+                                    <p class="text-xs font-semibold">MULTICOLORED EMBORSED BAG</p>
+                                    <span class="text-xs">$120.00</span>
+                                </div>
+                            </div>
+                            <div class="wow fadeInDown">
+                                <img src="./src/images/4.jpg" class="h-40 w-52 md:h-72 md: theme-rounded object-cover"  alt="">
+                                <div class="pt-2 space-y-2 text-gray-color px-4">
+                                    <p class="text-xs font-semibold">OFF-THE-SHOULDER-SWEATER</p>
+                                    <span class="text-xs">$120.00</span>
+                                </div>
+                            </div>
+                            <div class="wow fadeInDown">
+                                <img src="./src/images/8.jpg" class="h-40 w-52 md:h-72 md: theme-rounded object-cover"  alt="">
+                                <div class="pt-2 space-y-2 text-gray-color px-4">
+                                    <p class="text-xs font-semibold">LACE-UP WEDGES</p>
+                                    <span class="text-xs">$120.00</span>
+                                </div>
+                            </div>
+                            <div class="wow fadeInRight">
+                                <img src="./src/images/7.jpg" class="h-40 w-52 md:h-72 md: theme-rounded object-cover"  alt="">
+                                <div class="space-y-2 text-gray-color px-4">
+                                    <p class="text-xs font-semibold">MULTICOLORED EMBORSED BAG</p>
+                                    <span class="text-xs">$120.00</span>
+                                </div>
+                            </div>
+                            <div class="wow fadeInRight">
+                                <img src="./src/images/2.jpg" class="h-40 w-52 md:h-72 md: theme-rounded object-cover"  alt="">
+                                <div class="pt-2 space-y-2 text-gray-color px-4">
+                                    <p class="text-xs font-semibold">OFF-THE-SHOULDER-SWEATER</p>
+                                    <span class="text-xs">$120.00</span>
+                                </div>
+                            </div>
+                            <div class="wow fadeInRight">
+                                <img src="./src/images/3.jpg" class="h-40 w-52 md:h-72 md: theme-rounded object-cover"  alt="">
+                                <div class="pt-2 space-y-2 text-gray-color px-4">
+                                    <p class="text-xs font-semibold">LACE-UP WEDGES</p>
+                                    <span class="text-xs">$120.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-10">
+            <div class="bg-gray-color p-10">
+                <div class="frame">
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10">
+                        <div class="space-y-3 col-span-2">
+                            <a href="#">
+                                <h1 class="text-4xl text-primary-color font-bold">Bella</h1>
+                            </a>
+                            <div class="pt-5 space-y-2">
+                                <div class="flex flex-row space-x-2">
+                                    <span class="text-xs text-gray-800"><i class="fas fa-phone-square"></i></span>
+                                    <p class="text-gray-600 text-sm">Call us <span class="text-primary-color text-sm">+77(510)334 594</span></p>
+                                </div>
+                                <div class="flex flex-row space-x-2">
+                                    <span class="text-xs text-gray-800"><i class="fas fa-map-marker-alt"></i></span>
+                                    <p class="text-gray-600 text-xs">18th floor, 379 Hudson Street, NY10019 US</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-row space-x-2">
+                                <div class="border border-gray-600 rounded-full w-5 h-5 flex items-center justify-center p-4">
+                                    <span class="text-sm text-gray-600"><i class="fab fa-facebook"></i></span>
+                                </div>
+                                <div class="border border-gray-600 rounded-full w-5 h-5 flex items-center justify-center p-4">
+                                    <span class="text-sm text-gray-600"><i class="fab fa-instagram-square"></i></span>
+                                </div>
+                                <div class="border border-gray-600 rounded-full w-5 h-5 flex items-center justify-center p-4">
+                                    <span class="text-sm text-gray-600"><i class="fab fa-pinterest-p"></i></span>
+                                </div>
+                                <div class="border border-gray-600 rounded-full w-5 h-5 flex items-center justify-center p-4">
+                                    <span class="text-sm text-gray-600"><i class="fab fa-blogger-b"></i></span>
+                                </div>
+                                <div class="border border-gray-600 rounded-full w-5 h-5 flex items-center justify-center p-4">
+                                    <span class="text-sm text-gray-600"><i class="fab fab fa-google-plus-g"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="text-sm text-primary-color font-semibold">FOOTER MENU</h2>
+                            <div class="flex flex-col space-y-2 text-sm text-gray-500 pt-4">
+                                <a href="#">Home</a>
+                                <a href="#">Shop</a>
+                                <a href="#">About</a>
+                                <a href="#">Pages</a>
+                                <a href="#">Blog</a>
+                                <a href="#">Contact</a>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="text-sm text-primary-color font-semibold">USEFUL LINKS</h2>
+                            <div class="flex flex-col space-y-2 text-sm text-gray-500 pt-4">
+                                <a href="#">Privacy Policy</a>
+                                <a href="#">Returns</a>
+                                <a href="#">Terms & Conditions</a>
+                                <a href="#">Contact Us</a>
+                                <a href="#">Latest News</a>
+                                <a href="#">Our Sitemap</a>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="text-sm text-primary-color font-semibold">SHOP</h2>
+                            <div class="flex flex-col space-y-2 text-sm text-gray-500 pt-4">
+                                <a href="#">Men</a>
+                                <a href="#">Woman</a>
+                                <a href="#">Bags</a>
+                                <a href="#">Shoes</a>
+                                <a href="#">Jewelleries</a>
+                                <a href="#">Accessories</a>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="text-sm text-primary-color font-semibold">CUSTOMER SERVICES</h2>
+                            <div class="flex flex-col space-y-2 text-sm text-gray-500 pt-4">
+                                <p>Oreders and Returns</p>
+                                <p>Contact Us</p>
+                                <p>Help & FAQs</p>
+                                <p>Consultants</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
 
-        <!-- <h1 class="wow fadeInUp text-5xl font-bold text-green-600">Home Page</h1> -->
+        <h1 class="wow fadeInUp text-5xl font-bold text-green-600">Home Page</h1>
         <!-- page content goes in here -->
         <!-- */**/* -->
-        <script src="../../assets/fontawesome/js/all.js"></script>
-        <script src="../../assets/wow/wow.js"></script>
-        <script src="../js/app.js"></script>
+        <script src="assets/owl/jquery.js"></script>
+        <script src="assets/fontawesome/js/all.js"></script>
+        <script src="assets/wow/wow.js"></script>
+        <script src="src/js/app.js"></script>
+        <script src="src/js/alpine.js"></script>
     </body>
 </html>
