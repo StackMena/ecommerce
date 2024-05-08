@@ -45,6 +45,9 @@
     .mobile-padding {
         @apply px-5;
     }
+    .mobile-padding-mp {
+        @apply px-0;
+    }
     .theme-rounded {
         @apply rounded-md;
     }

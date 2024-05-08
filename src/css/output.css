@@ -469,6 +469,11 @@ body {
 
 /* end of overlay */
 
+.mobile-padding {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
 /* buttons */
 
 /* end of buttons */
