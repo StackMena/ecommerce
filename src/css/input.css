@@ -12,8 +12,21 @@
         box-sizing: border-box;
     }
     body {
-        @apply text-gray overflow-x-hidden;
+        @apply  overflow-x-hidden;
     }
+    
+    /* flex-section */
+
+    .nav-flex {
+        @apply flex flex-row items-center justify-center;
+    }
+    .flex-nav {
+        @apply flex items-center justify-between;
+    }
+
+    /* end of flex-section */
+
+
     /* overlay */
     .overlay {
         @apply relative;
@@ -72,7 +85,7 @@
 
     /* input style */
     .input {
-        @apply border border-gray/60 focus:ring-1 focus:ring-primary focus:outline-none outline-none focus:border-primary/50 py-3 px-2 rounded-md;
+        @apply border border-gray-100 focus:ring-1 focus:ring-primary focus:outline-none outline-none focus:border-primary/50 py-3 px-2 rounded-md;
     }
     /* end of input style */
 

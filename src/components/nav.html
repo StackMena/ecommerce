@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/output.css">
+    <title>Nav Menu</title>
+</head>
+<body>
+    <nav class="frame">
+        <div class="flex-nav space-x-5 mt-2">
+            <div>
+                <p>Call us +77(510)334 594</p>
+            </div>
+            <div>
+                <p>Login / sign In</p>
+            </div>
+        </div>
+        <div class="pt-2">
+            <hr>
+        </div>
+        <div class="flex-nav mt-5"  x-data=" { dropdown: false, toggleModal() { this.dropdown =! this.dropdown}} ">
+            <div @click.prevent="toggleNav()" class="p-5 border-2">
+                <div class="text-primary text-4xl font-semibold">
+                    <h1>Bella</h1>
+                </div>
+                <div>
+                    <form action="/">
+                        <div class="nav-flex">
+                            <input type="text" class="input" placeholder="search">
+                            <p>All Categories</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="space-x-4">
+                    <a href="/">Home</a>
+                    <a href="/">Shop</a>
+                    <a href="/">About</a>
+                    <a href="/">Blog</a>
+                    <a href="/">Pages</a>
+                    <a href="/">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
